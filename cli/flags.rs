@@ -126,7 +126,7 @@ impl Flags {
     let mut args = vec![];
 
     if !self.read_whitelist.is_empty() {
-      let s = format!("--allow-read={}", join_paths(&self.read_whitelist, ","));
+      let s = format!("--allow-read[={}]", join_paths(&self.read_whitelist, ","));
       args.push(s);
     }
 
@@ -136,7 +136,7 @@ impl Flags {
 
     if !self.write_whitelist.is_empty() {
       let s =
-        format!("--allow-write={}", join_paths(&self.write_whitelist, ","));
+        format!("--allow-write[={}]", join_paths(&self.write_whitelist, ","));
       args.push(s);
     }
 
@@ -145,7 +145,7 @@ impl Flags {
     }
 
     if !self.net_whitelist.is_empty() {
-      let s = format!("--allow-net={}", self.net_whitelist.join(","));
+      let s = format!("--allow-net[={}]", self.net_whitelist.join(","));
       args.push(s);
     }
 
